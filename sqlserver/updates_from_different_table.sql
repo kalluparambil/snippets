@@ -1,3 +1,6 @@
+--*******************************************
+--Updates from different table using MERGE
+--*******************************************
 --Use below merge statement.
 --The Merge is made using a Transaction
 BEGIN TRANSACTION [Tran1]
@@ -52,3 +55,15 @@ BEGIN CATCH
 END CATCH  
 
 GO
+
+--*******************************************
+--Updating data from another table using join
+--*******************************************
+--The below statement would be used in the above transaction instead of the Merge statement.
+UPDATE <DEST> 
+SET
+	<DEST>.<COL1> = SRC.<COL1>,
+FROM 	<DEST_TABLE> AS <DEST>
+INNER JOIN <SRC_TABLE> AS <SRC> ON SRC.KEY1 = DEST.KEY1
+WHERE 1=1
+;
