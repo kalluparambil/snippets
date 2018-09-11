@@ -1,0 +1,2 @@
+--For displaying the Date in Excel
+CONVERT(varchar, PS_CREATE_DATE, 120)                  	AS PEOPLESOFT_CREATE
