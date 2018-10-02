@@ -1,4 +1,6 @@
 ::Goes through the timestamp output from Robocopy and prints it out in a different format
+::https://stackoverflow.com/questions/203090/how-do-i-get-current-datetime-on-the-windows-command-line-in-a-suitable-format
+
 @echo off
 setlocal
 for /f "skip=8 tokens=2,3,4,5,6,7,8 delims=: " %%D in ('robocopy /l * \ \ /ns /nc /ndl /nfl /np /njh /XF * /XD *') do (
