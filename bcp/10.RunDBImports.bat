@@ -5,7 +5,7 @@
 echo ------------------------------------------------
 echo 			 Starting import-cat-items
 echo ------------------------------------------------
-call import-cat-items.bat
+call 11.import-db-table-data.bat
 ::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::
