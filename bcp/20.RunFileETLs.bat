@@ -6,6 +6,6 @@
 echo ------------------------------------------------
 echo 			 Starting etl-fieldglass-daily
 echo ------------------------------------------------
-call etl-fieldglass-daily.bat
+call 21.import-file-data.bat
 :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::
