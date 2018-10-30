@@ -1,10 +1,23 @@
 --Find the User's Table which holds this column
-SELECT 
+SELECT top 100
  t.NAME AS Table_Name
 ,c.NAME AS Column_Name
 FROM sys.columns c
 INNER JOIN sys.objects t ON t.object_id = c.object_id
-WHERE t.type = 'U' --user table type
-and c.NAME like '%MODEL_NAME%'
+WHERE 1=1
+and t.type = 'U' --user table type
+and c.NAME like '%ColumnName%'
 ORDER BY 1,2
+;
+
+--Find View Details and Columns Details
+--using column name
+select top 100
+ v.name
+,c.name
+from sys.columns as c
+inner join sys.views as v on v.object_id = c.object_id
+where 1=1
+--and v.name = '%ViewName%'
+and c.name like '%ColumnName%'
 ;
