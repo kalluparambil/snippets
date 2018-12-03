@@ -1,3 +1,5 @@
 How to remove the "Abc" placeholder text from a crosstab view. 
 https://kb.tableau.com/articles/howto/removing-abc-placeholder-text
 
+Replace Data Source
+https://onlinehelp.tableau.com/current/pro/desktop/en-us/connect_basic_replace.htm
