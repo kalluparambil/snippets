@@ -1,0 +1,4 @@
+Deleting iMessage Threads on Mac
+Ref: https://appletoolbox.com/2018/02/how-to-delete-texts-and-imessages-on-your-mac/
+I’m using macOS High Sierra. And the only thing that seems to work to delete messages quickly (Since Command + Option + Delete isn’t working) is to press Command+Delete and keep pressing down the Command key, then press the D key.  The D key seems to confirm the deletion instead of having to manually click the Delete button in the confirmation message. It’s a workaround but not great!
+
