@@ -1,0 +1,14 @@
+Introducing Regular Expressions
+by Michael Fitzgerald
+Publisher: O'Reilly Media, Inc.
+Release Date: July 2012
+ISBN: 9781449392680
+Topic: Regular Expressions
+
+Testing sites
+http://regexpal.com/
+http://gskinner.com/RegExr/
+http://rubular.com/
+
+Oracle RegExp Reference
+http://psoug.org/reference/regexp.html
