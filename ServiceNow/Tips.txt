@@ -1,0 +1,10 @@
+In order to link directly by number, specify the sysparm_query parameter that would define a query for the record. 
+
+https://company.service-now.com/nav_to.do?uri=/u_security_exception.do?sysparm_query=number=SECDAT1234567
+
+URL-encode the entire parameter string for the uri:
+
+https://company.service-now.com/nav_to.do?uri=%2Fu_security_exception.do%3Fsysparm_query%3Dnumber%3DSECDAT1234567
+
+Tableau URL Action:
+https://company.service-now.com/nav_to.do?uri=%2Fu_security_exception.do%3Fsysparm_query%3Dnumber%3D<Number>
