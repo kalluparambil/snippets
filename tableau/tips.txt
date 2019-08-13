@@ -3,3 +3,6 @@ https://kb.tableau.com/articles/howto/removing-abc-placeholder-text
 
 Replace Data Source
 https://onlinehelp.tableau.com/current/pro/desktop/en-us/connect_basic_replace.htm
+
+SQL and performance Tools
+https://github.com/tableau/tableau-log-viewer
