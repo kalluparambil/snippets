@@ -1,3 +1,13 @@
 --Create Database
-Create Database DBName;
+create database MyDatabase;
+
+--Create Table
+create table Customer
+(
+ FirstName varchar(100)
+,LastName varchar(100)
+,Age int
+)
+;
+
 
