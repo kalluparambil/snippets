@@ -64,5 +64,17 @@ create table Customers
 create index Customers_idx
 on Customers(LastName, FirstName);
 
+--Create Foreign Key
+alter table Orders
+add foreign key (Customer_Id) references Customers(Id)
+;
+
+--Inner joins
+select c.FirstName, c.LastName
+,o.ItemName, o.ItemPrice
+from Customers c
+inner join Orders o on (o.OrderId = c.OrderId)
+where c.LastName = 'McDonald'
+;
 
 
