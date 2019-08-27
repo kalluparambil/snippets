@@ -43,3 +43,11 @@ where LastName = 'McDonald'
 delete Customers
 where LastName = 'King'
 ;
+
+--Change Table (new column, update column)
+alter table Customers
+add City varchar(50)
+;
+
+
+
