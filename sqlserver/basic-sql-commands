@@ -60,3 +60,9 @@ create table Customers
 ,City varchar(100)
 )
 ;
+
+create index Customers_idx
+on Customers(LastName, FirstName);
+
+
+
