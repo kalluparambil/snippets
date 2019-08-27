@@ -10,4 +10,17 @@ create table Customer
 )
 ;
 
-
+--Insert Statement
+insert into Customer
+(
+ FirstName
+,LastName
+,Age
+)
+values
+(
+ 'B'
+,'Obama'
+,60
+)
+;
