@@ -20,7 +20,26 @@ insert into Customer
 values
 (
  'B'
-,'Obama'
+,'McDonald'
 ,60
 )
+;
+
+--Select  Statement
+select  FirstName, LastName, Age
+from Customers
+where LastName = 'Obama'
+;
+
+--Update Statement
+update Customers
+set
+ FirstName = 'Barry'
+,Age = 61
+where LastName = 'McDonald'
+;
+
+--Delete Statement
+delete Customers
+where LastName = 'King'
 ;
