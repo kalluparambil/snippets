@@ -1,0 +1,3 @@
+--Create Database
+Create Database DBName;
+
