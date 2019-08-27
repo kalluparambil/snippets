@@ -49,5 +49,14 @@ alter table Customers
 add City varchar(50)
 ;
 
+drop table Customers;
 
-
+create table Customers
+(
+ Id int Primary Key identity (1,1)
+,FirstName varchar(100)
+,LastName varchar(100)
+,Age int
+,City varchar(100)
+)
+;
