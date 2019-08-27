@@ -77,4 +77,14 @@ inner join Orders o on (o.OrderId = c.OrderId)
 where c.LastName = 'McDonald'
 ;
 
+--Group By
+select 
+ o.ItemName
+ ,count(*)
+from Orders o
+where 1=1
+group by 
+ o.ItemName
+having count(*) > 1
+;
 
