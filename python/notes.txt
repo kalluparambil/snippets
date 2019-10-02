@@ -58,3 +58,11 @@ elif (age >= 13 and age < 18):
     print("You are a Teenager.")
 else:
    print("You are an Adult.")
+
+#Loops
+list1 = ["Apples", "Oranges","Cherries"]
+tup1 = (1,2,3)
+for item in list1:
+    print(item)
+for item in tup1:
+    print(item)
