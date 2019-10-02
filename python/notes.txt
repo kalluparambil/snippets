@@ -1,8 +1,14 @@
-#What is the difference between lists, tuples, dictionaries etc?
+#Question: What is the difference between lists, tuples, dictionaries etc?
 
 #Read on the placeholders in strings in Python
 https://pyformat.info/
 
+##Example
 sentence = "%s is my name"
 sentence%('Rama')
+
+##Another way
+'%s %s' % ('one', 'two')
+'{} {}'.format('Three', 'Four')
+
 
