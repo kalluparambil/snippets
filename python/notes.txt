@@ -13,8 +13,12 @@ sentence%('Rama')
 
 #Lists
 mylist = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+##Select
+##Insert
 mylist.append('NewDay')
+##Update
 mylist[7] = "January"
+##Delete
 del mylist[7]
 
 ##Length of List
@@ -32,3 +36,14 @@ numlist = [1,2,3,4,5]
 max(numlist)
 min(numlist)
 
+#Dictionaries
+students = {"Babu":10,"Coumar":11,"Dravid":12}
+##Select
+students
+students["Babu"]
+##Update
+students["Babu"] = 9
+##Delete
+del(students["Coumar"])
+##Other operations
+len(students)
