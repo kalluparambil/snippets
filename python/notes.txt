@@ -50,3 +50,11 @@ students["Babu"] = 9
 del(students["Coumar"])
 ##Other operations
 len(students)
+
+#Conditional Statements
+if (age < 13):
+    print("You are young.")
+elif (age >= 13 and age < 18):
+    print("You are a Teenager.")
+else:
+   print("You are an Adult.")
