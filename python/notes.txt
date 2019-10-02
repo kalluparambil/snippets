@@ -11,4 +11,19 @@ sentence%('Rama')
 '%s %s' % ('one', 'two')
 '{} {}'.format('Three', 'Four')
 
+#Lists
+mylist = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+mylist.append('NewDay')
+mylist[7] = "January"
+del mylist[7]
+
+##Length of List
+len(mylist)
+
+##Adding Lists
+mylist2 = ["January","February","March"]
+mylist + mylist2
+
+##Multiplying Lists
+mylist2 * 2
 
