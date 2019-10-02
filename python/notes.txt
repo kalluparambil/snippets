@@ -27,3 +27,8 @@ mylist + mylist2
 ##Multiplying Lists
 mylist2 * 2
 
+##Max and Min from List
+numlist = [1,2,3,4,5]
+max(numlist)
+min(numlist)
+
