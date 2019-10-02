@@ -1,1 +1,5 @@
 #What is the difference between lists, tuples, dictionaries etc?
+
+#Read on the placeholders in strings in Python
+https://pyformat.info/
+
