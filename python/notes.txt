@@ -3,3 +3,6 @@
 #Read on the placeholders in strings in Python
 https://pyformat.info/
 
+sentence = "%s is my name"
+sentence%('Rama')
+
