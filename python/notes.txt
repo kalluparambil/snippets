@@ -77,4 +77,26 @@ while c < 5:
     print(c)
     c = c + 1
     
+# While - Break, Continue and Pass
+c = 0
+while c < 5:
+    c = c + 1
+    if c == 3:
+        break #Break out of the loop
+    print(c)
+
+c = 0
+while c < 5:
+    c = c + 1
+    if c == 3:
+        continue #Skip below statements
+    print(c)
+
+c = 0
+while c < 5:
+    c = c + 1
+    if c == 3:
+        pass #Just a null statement
+    print(c)
+
  
