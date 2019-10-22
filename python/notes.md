@@ -139,3 +139,27 @@ sum = Add(3, 4)
 #Check
 print(sum)
 ```
+## Built-in Functions
+```python
+#Some examples
+abs(-13)
+bool(1 < 5)
+bool(None)
+dir("hello")
+
+sent = "hello"
+help(sent.upper)
+
+#Dynamically execute code
+sent = 'print("Hello")'
+eval(sent)
+eval("5*3")
+
+#Dynamically execute multi-line Code
+exec(sent)
+
+#Convert Number to Str, Float or Int
+a = 1
+str('a')
+float('a')
+int('a')
