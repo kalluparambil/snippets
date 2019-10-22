@@ -163,3 +163,22 @@ a = 1
 str('a')
 float('a')
 int('a')
+```
+
+## Class
+```python
+#Defining a class, initializing and then getting
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def getName(self):
+        print('Your name is ' + self.name)
+    def getAge(self):
+        print('Your age is ' + self.age)
+
+#Pass the Age as String
+p1 = Person("Uma", "13")
+p1.getAge()
+p1.getName()
+```
