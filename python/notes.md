@@ -117,3 +117,25 @@ while c < 5:
     print(c)
 
 ``` 
+## Try and Except
+```python
+try:
+    if name > 3:
+        print('Greater')
+except:
+        print('Exception - since name is not defined')
+```
+
+## Functions
+```python
+## Functions
+#Define a Function
+def Add(num1, num2):
+    return(num1 + num2)
+
+#Store the returned value
+sum = Add(3, 4)
+
+#Check
+print(sum)
+```
