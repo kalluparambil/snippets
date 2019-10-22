@@ -182,3 +182,28 @@ p1 = Person("Uma", "13")
 p1.getAge()
 p1.getName()
 ```
+## Inheritance
+```python
+#Defining the Parent
+class Parent:
+	def __init__(self):
+		print('This is the parent class.')
+	def parentFunc(self):
+		print('This is the parent function.')
+
+#Defining the Child
+class Child(Parent):
+	def __init__(self):
+		print('This is the child class.')
+	def childFunc(self):
+		print('This is the child function.')
+
+#Instantiate the Child
+c1 = Child()
+#Call child function
+c1.childFunc()
+#Call parent function
+c1.parentFunc()
+This is the parent function.
+
+```
