@@ -262,3 +262,30 @@ print(text)
 #
 myFile.close()
 ```
+## Copying a sample text file using file operations
+This method is not recommended. Instead follow one of the methods listed in below [website](https://www.techbeamers.com/python-copy-file/).
+```python
+#Read in the File
+myFile = open("File2.txt","r")
+text = myFile.read()
+print(text)
+
+#Request user the name of new file
+fileName = input("Enter the name of new file: ")
+print(fileName)
+
+#Create a new file with the name provided
+newFile = open(fileName,"w+")
+
+#Write the contents to a new File
+newFile.write(text)
+
+#Check out what was written in new file
+newFile.seek(0,0)
+text = newFile.read()
+print(text)
+
+#Close both files
+myFile.close()
+newFile.close()
+```
