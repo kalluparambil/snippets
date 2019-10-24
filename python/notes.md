@@ -207,3 +207,17 @@ c1.parentFunc()
 This is the parent function.
 
 ```
+## Reading File Contents
+```python
+myFile = open("File1.txt")
+text = myFile.read()
+print(text)
+position = myFile.tell()
+print(position)
+#Move the cursor or pointer to the beginning of the file
+position = myFile.seek(0,0)
+print(position)
+text = myFile.read()
+print(text)
+myFile.close()
+```
