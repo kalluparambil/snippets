@@ -205,19 +205,60 @@ c1.childFunc()
 #Call parent function
 c1.parentFunc()
 This is the parent function.
-
 ```
 ## Reading File Contents
 ```python
 myFile = open("File1.txt")
 text = myFile.read()
 print(text)
+
+#
 position = myFile.tell()
 print(position)
+
 #Move the cursor or pointer to the beginning of the file
 position = myFile.seek(0,0)
 print(position)
 text = myFile.read()
 print(text)
+
+#
+myFile.close()
+```
+## Writing File Contents
+```python
+myFile = open("File2.txt","w+")
+text = myFile.read()
+print(text)
+#
+myFile.write("First Line of file.\n")
+myFile.seek(0,0)
+text = myFile.read()
+print(text)
+#
+myFile.write("Second Line of file.\n")
+myFile.seek(0,0)
+text = myFile.read()
+print(text)
+#
+myFile.close()
+```
+
+## Appending to File Contents
+```python
+myFile = open("File2.txt","a+")
+text = myFile.read()
+print(text)
+#
+myFile.write("Third Line of file.\n")
+myFile.seek(0,0)
+text = myFile.read()
+print(text)
+#
+myFile.write("Forth Line of file.\n")
+myFile.seek(0,0)
+text = myFile.read()
+print(text)
+#
 myFile.close()
 ```
