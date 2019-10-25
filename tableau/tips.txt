@@ -6,3 +6,6 @@ https://onlinehelp.tableau.com/current/pro/desktop/en-us/connect_basic_replace.h
 
 SQL and performance Tools
 https://github.com/tableau/tableau-log-viewer
+
+Example of a Level of Detail Calculation involving decisions on multiple hierarchies
+https://public.tableau.com/profile/sanjay.kalluparambil#!/vizhome/LevelofDetailCalculationExample/Customers
