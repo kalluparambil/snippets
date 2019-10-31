@@ -68,7 +68,26 @@ df.sort_values(['Name', 'Type 1'])
 df.sort_values(['Name', 'Type 1'], ascending=[1,0])
 ```
 
-## Writing data
+## Manipulating data
+```python
+#Add a calculated column - Alternate way 1
+#df['Total'] = df['HP'] + df['Attack'] + df['Defense']+ df['Sp. Atk'] + df['Sp. Def']+ df['Speed']
+
+#Remove a column
+df = df.drop(columns=['Total'])
+df.head(5)
+
+#Add a calculated column - Alternate way 2
+df['Total'] = df.iloc[:, 4:10].sum(axis=1)
+
+#Rearranging the columns
+#Get Names of the columns as a list
+cols = list(df.columns.values)
+#cols - convert cols[-1] to list
+df = df[cols[0:4] + [cols[-1]] + cols[4:12]]
+```
+
+## Writing to file
 ```python
 
 ```
