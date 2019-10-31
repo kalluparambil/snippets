@@ -89,5 +89,22 @@ df = df[cols[0:4] + [cols[-1]] + cols[4:12]]
 
 ## Writing to file
 ```python
+#Saving (with not index column)
+df.to_csv('modified.csv', index=False)
+df.to_excel('modified.xlsx', index=False)
+df.to_csv('modified.txt', index=False, sep='\t')
+```
 
+## Filtering Data
+```python
+df.loc[df['Type 1'] == 'Grass']
+
+#TIP: Parenthesis needed for multiple Condition check
+df.loc[(df['Type 1'] == 'Grass') & (df['Type 2'] == 'Poison')]
+
+#Column contains Mega
+df.loc[df['Name'].str.contains('Mega')]
+
+#Column does not contain Mega
+df.loc[~df['Name'].str.contains('Mega')]
 ```
