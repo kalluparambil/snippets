@@ -1,5 +1,5 @@
 # Learning some pandas
-Ref: []()
+Ref: [YouTube link](https://www.youtube.com/watch?v=vmEHCJofslg&list=PLjxQEUdbCjs5--D5N99XjU1WzKcr0n2u2&index=9&t=830s)
 
 ## Opening csv, excel or tsv files
 ```python
@@ -109,7 +109,7 @@ df.loc[df['Name'].str.contains('Mega')]
 df.loc[~df['Name'].str.contains('Mega')]
 ```
 
-# Using RegEx in Filters
+## Using RegEx in Filters
 ```python
 import re
 #Find Type 1 which is fire or grass, ignore case
@@ -118,7 +118,7 @@ df.loc[df['Type 1'].str.contains('fire|grass', regex=True, flags=re.I)]
 df.loc[df['Name'].str.contains('^pi[a-z]*', regex=True, flags=re.I)]
 ```
 
-# Conditional changes
+## Conditional changes
 ```python
 #Change Type 1 from Fire to Flamer
 df.loc[df['Type 1'] == 'Fire', 'Type 1'] = 'Flamer'
@@ -126,13 +126,16 @@ df.loc[df['Type 1'] == 'Fire', 'Type 1'] = 'Flamer'
 #Change multiple columns based on condition
 df.loc[df['Total'] > 500, ['Generation','Legendary'] ]= [2,True]
 ```
-# Aggregate Statistics
+## Aggregate Statistics
 ```python
 #Applying Group by
 df.groupby('Type 1').count().sort_values('Name', ascending=False)
 
 #Getting count via Group by on a column
 df.groupby('Type 1').count()['Name']
+```
 
-
+## Working with large amounts of data
+```python
+#Not covered properly in the video
 ```
