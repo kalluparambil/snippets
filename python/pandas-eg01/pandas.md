@@ -13,7 +13,7 @@ df_excel = pd.read_excel('pokemon_data.xlsx')#Read TSV file
 df_tsv = pd.read_csv('pokemon_data.txt', delimiter='\t')
 ```
 
-## Checking data
+## Reading data
 ```python
 #Check everything
 print(df)
@@ -57,5 +57,18 @@ print(df.loc[df['Type 1'] == 'Grass'])
 #Get some stats from the data set
 df.describe()
 
+#Sorting by Column Name
+df.sort_values('Name')
+#Descending
+df.sort_values('Name', ascending=False)
+
+#Sorting by multiple Column Name
+df.sort_values(['Name', 'Type 1'])
+#Ascending and Descending
+df.sort_values(['Name', 'Type 1'], ascending=[1,0])
 ```
 
+## Writing data
+```python
+
+```
