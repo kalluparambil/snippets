@@ -5,24 +5,32 @@
 
 function sendEmail(e) {
   
+    try {
   
-  var html = HtmlService.createTemplateFromFile('email.html');
-  var htmlText = html.getRawContent();
-  Logger.log('htmlText = ' + htmlText);
-  
-  var emailTo = e.response.getRespondentEmail() ;
-  var subject = 'Testing Email';
-  var textBody = 'This email requires HTML Support.';
-  var options = { htmlBody: htmlText};
+      var html = HtmlService.createTemplateFromFile('email.html');
+      var htmlText = html.getRawContent();
+      //Logger.log('htmlText = ' + htmlText);
+      
+      var emailTo = e.response.getRespondentEmail() ;
+      var subject = 'Testing Email';
+      var textBody = 'This email requires HTML Support.';
+      var options = { htmlBody: htmlText};
+      
+      /*
+      Logger.log('emailTo = ' + emailTo);
+      Logger.log('subject = ' + subject);
+      Logger.log('textBody = ' + textBody);
+      Logger.log('options = ' + options.toString() );
+      */
+      
+      if(emailTo !== undefined){
+        GmailApp.sendEmail(emailTo, subject, textBody, options)
+      }
+    }    
 
-  Logger.log('emailTo = ' + emailTo);
-  Logger.log('subject = ' + subject);
-  Logger.log('textBody = ' + textBody);
-  Logger.log('options = ' + options.toString() );
-  
-  if(emailTo !== undefined){
-    GmailApp.sendEmail(emailTo, subject, textBody, options)
+  catch(err) {
+      Logger.log(err.toString());  
   }
-  
+
   
 }
