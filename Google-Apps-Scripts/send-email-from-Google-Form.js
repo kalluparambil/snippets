@@ -96,11 +96,11 @@ function sendEmail(e) {
                      , cc: emailcc
                     };
 
-      //** send emails **
+      //** send email to Web Gana and others **
       if(emailTo !== undefined){
         GmailApp.sendEmail(emailTo, subject, textBody, options)
       }
-      
+            
     }    
 
   catch(err) {
