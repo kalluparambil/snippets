@@ -77,16 +77,18 @@ function sendEmail(e) {
       var subject = dateTime + ' Attention: Work Request Submitted';
 
       //** email to, cc **
-      var emailTo = 'web@sbusa.org' ;
+      var emailTo = 'web@samskritabharatiusa.org';
       
       //Make sure that email is valid before building cc string.
       //Default Form validation only validates single email id.
       //Hence validating to see if the multiple email ids are good.
-      var emailcc = itemResponses[1].getResponse(); //Hardcoded to 1 as this email is the second field
+      var emailRequester = itemResponses[1].getResponse(); //Hardcoded to 1 as this email is the second field
 
-      if(!validateEmails(emailcc)){
-        emailcc = ''; 
+      if(!validateEmails(emailRequester)){
+        emailRequester = ''; 
       }
+      
+      var emailcc = e.response.getRespondentEmail() + ', ' + emailRequester;
 
       //** email body **
       var textBody = 'This email requires HTML Support.';
