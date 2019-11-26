@@ -40,21 +40,37 @@ function sendEmail(e) {
   
     try {
   
-      //** Get the HTML Content**
-      var html = HtmlService.createTemplateFromFile('email.html');
+      //** Change below constants to reuse the code with other Forms **
+      const FORM_COLLECTS_EMAIL = true;
+      const EMAIL_TO = 'web@samskritabharatiusa.org';
+      const HTML_TEMPLATE = 'email.html';
+      const HTML_TXT_TO_REPLACE = '{!@#$%}';
+      const FORM_IDX_OF_EMAIL_ID = 1; //If the email id is the second field then use index 1 to retrieve 
+      const EMAIL_SUBJECT = 'Attention: Fundraising Page Work Request Submitted';
+      const HTML_UNSUPPORTED_TXT = 'This email requires HTML Support.';
+      
+      //** Get the HTML Content **
+      var html = HtmlService.createTemplateFromFile(HTML_TEMPLATE);
       var htmlText = html.getRawContent();
 
-      //** Get values from Form**
+      //** Get values from Form **
       var form = e.source;
       var formResponses = form.getResponses();
 
-      //Get only the latest response which is stored in the Form.
-      //Sting them together into one variable to add to the HTML later.
+      //** Get only the latest Form Entry **
       var formLastResponse = formResponses.length;
       var formResponse = formResponses[formLastResponse - 1];
       var itemResponses = formResponse.getItemResponses();
 
-      var formValues = 'Email submitted by: ' + e.response.getRespondentEmail() + '<br>';
+      //** If Form collects Email ID then gather that information **
+      var formRespondentEmail = '';
+      var formValues = '';
+      if (FORM_COLLECTS_EMAIL){
+        formRespondentEmail = e.response.getRespondentEmail();
+        formValues = 'Email submitted by: ' + formRespondentEmail + '<br>';
+      }
+      
+      //** Get all the fields from the latest Form Entry **
       for (var counter = 0; counter < itemResponses.length; counter++) {
         var itemResponse = itemResponses[counter];
         var formItem = (counter + 1).toString() 
@@ -64,39 +80,38 @@ function sendEmail(e) {
         formValues = formValues + formItem;
       }
       
-      //** HTML email body **
-      var htmlTextNew = htmlText.replace('{!@#$%}', formValues);
+      //** HTML email body - Remember to customize the HTML Template file if needed **
+      var htmlTextNew = htmlText.replace(HTML_TXT_TO_REPLACE, formValues);
 
-      //** email subject **
+      //** Build [YYYY-MM-DD HH:MM] and add to Email subject**
       var today = new Date();
       //Build the fromatted date YYYY-MM-DD
       var date = paddy(today.getFullYear(), 4)+'-'+paddy(today.getMonth()+1,2)+'-'+paddy(today.getDate(),2);
       //Pad with leading zeros
       var time = paddy(today.getHours(),2) + ":" + paddy(today.getMinutes(),2);
       var dateTime = '[' + date + ' ' + time +']' ;
-      var subject = dateTime + ' Attention: Work Request Submitted';
+      var subject = dateTime + ' ' + EMAIL_SUBJECT;
 
-      //** email to, cc **
-      var emailTo = 'web@samskritabharatiusa.org';
+      //** Email To **
+      var emailTo = EMAIL_TO;
       
-      //Make sure that email is valid before building cc string.
-      //Default Form validation only validates single email id.
-      //Hence validating to see if the multiple email ids are good.
-      var emailRequester = itemResponses[1].getResponse(); //Hardcoded to 1 as this email is the second field
-
-      if(!validateEmails(emailRequester)){
+      //** Email CC - check for valid emails **
+      var emailRequester = itemResponses[FORM_IDX_OF_EMAIL_ID].getResponse();
+      if(!validateEmails(emailRequester)){ //Blank out if emails are not valid
         emailRequester = ''; 
       }
-      
-      var emailcc = e.response.getRespondentEmail() + ', ' + emailRequester;
+      else if (formRespondentEmail !== undefined){ //If the FORM_COLLECTS_EMAIL then separate by comma
+        emailRequester = ', ' + emailRequester; 
+      }
+      var emailcc = formRespondentEmail + emailRequester;
 
-      //** email body **
-      var textBody = 'This email requires HTML Support.';
+      //** Email Body **
+      var textBody = HTML_UNSUPPORTED_TXT;
       var options = { htmlBody: htmlTextNew
                      , cc: emailcc
                     };
 
-      //** send email to Web Gana and others **
+      //** Send Email **
       if(emailTo !== undefined){
         GmailApp.sendEmail(emailTo, subject, textBody, options)
       }
