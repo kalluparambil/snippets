@@ -45,8 +45,9 @@ function sendEmail(e) {
       const EMAIL_TO = 'web@samskritabharatiusa.org';
       const HTML_TEMPLATE = 'email.html';
       const HTML_TXT_TO_REPLACE = '{!@#$%}';
-      const FORM_IDX_OF_EMAIL_ID = 1; //If the email id is the second field then use index 1 to retrieve 
-      const EMAIL_SUBJECT = 'Attention: Fundraising Page Work Request Submitted';
+      const FORM_IDX_OF_EMAIL_ID = 1; //If the email id is the second field then use index 1 to retrieve. 
+      const FORM_IDX_OF_EVENT_TITLE = 3; //If the Event Title is 4th field then use index of 3 to retrieve. 
+      const EMAIL_SUBJECT = 'Event Work Request: ';
       const HTML_UNSUPPORTED_TXT = 'This email requires HTML Support.';
       
       //** Get the HTML Content **
@@ -90,7 +91,7 @@ function sendEmail(e) {
       //Pad with leading zeros
       var time = paddy(today.getHours(),2) + ":" + paddy(today.getMinutes(),2);
       var dateTime = '[' + date + ' ' + time +']' ;
-      var subject = dateTime + ' ' + EMAIL_SUBJECT;
+      var subject = dateTime + ' ' + EMAIL_SUBJECT + itemResponses[FORM_IDX_OF_EVENT_TITLE].getResponse();
 
       //** Email To **
       var emailTo = EMAIL_TO;
