@@ -37,8 +37,8 @@ select
 ,t.Prev_Latest_Date
 (
 select
- ROW_NUMBER() 
-        OVER( PARTITION BY table_name.partition_column ORDER BY table_name.date_column DESC )       AS _RowNumber
+ RANK() 
+        OVER( PARTITION BY table_name.partition_column ORDER BY table_name.date_column DESC )       AS _Rank
 ,table_name.date_column                                                                             AS Latest_Date
 ,LEAD(table_name.date_column,1) 
         OVER ( PARTITION BY table_name.partition_column ORDER BY table_name.date_column DESC )      AS Prev_Latest_Date
