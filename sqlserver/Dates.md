@@ -27,6 +27,8 @@ PRINT @startOfLastMonth;
 ```
 
 ### Find the Latest Date and the Previous to Latest Date and display them side by side
+[Reference](https://dba.stackexchange.com/questions/161689/compare-last-data-and-second-last-data-sql-server-based-on-id)
+Alternatively try LAG instead of LEAD function.
 ```sql
 --Get the Latest and Previous-to-Latest values side by side
 select 
