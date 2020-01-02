@@ -1,5 +1,14 @@
 # Query the Sql Server Meta Data Tables
 
+### Get the Server and Database information of the connected SQL Server
+```sql
+SELECT 
+ @@SERVERNAME               AS SERVER_NM
+,DB_NAME()                  AS DATABASE_NM
+,@@VERSION                  AS VERSION_NM
+;
+```
+
 ### Search by Column Name and find the Table and Column
 ```sql
 --Find the User's Table which holds this column
