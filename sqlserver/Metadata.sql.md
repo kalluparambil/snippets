@@ -5,6 +5,7 @@
 SELECT 
  @@SERVERNAME               AS SERVER_NM
 ,DB_NAME()                  AS DATABASE_NM
+,SCHEMA_NAME()              AS USER_SCHEMA_NM
 ,@@VERSION                  AS VERSION_NM
 ;
 ```
