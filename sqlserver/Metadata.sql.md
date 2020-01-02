@@ -29,3 +29,30 @@ where 1=1
 and c.name like '%ColumnName%'
 ;
 ```
+
+### Search by Text and find the Procedure and portions of the text
+```sql
+--Replace the Database Name
+USE <DATABASE_NAME>
+GO
+
+--Search and Find the Procedure Name and portion of Text
+SELECT 
+  OBJECT_NAME(S.id) as Proc_Name
+, S.text as Proc_Text
+FROM SYS.SYSCOMMENTS AS S 
+WHERE S.[text] LIKE '%text_to_search%' 
+AND OBJECTPROPERTY(S.id, 'IsProcedure') = 1 
+;
+```
+
+### Search by Text and find the full definition of Procedure
+```sql
+SELECT 
+  OBJECT_NAME(S.object_id) as Proc_Name
+, S.DEFINITION AS Proc_Text
+FROM SYS.SQL_MODULES AS S
+WHERE OBJECTPROPERTY(S.object_id, 'IsProcedure') = 1
+AND definition LIKE '%text_to_search%' 
+;
+```
