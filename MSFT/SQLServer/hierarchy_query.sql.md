@@ -1,3 +1,4 @@
+```sql
 --Use the below Common Table Expression to obtain the list of people working under a Manager
 --h => hierarchy
 --a => anchor
@@ -16,3 +17,4 @@ with h as
   ) 
 select * from h
 ;
+```
