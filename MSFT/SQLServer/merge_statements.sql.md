@@ -1,5 +1,6 @@
-Visit https://www.mssqltips.com/sqlservertip/1704/using-merge-in-sql-server-to-insert-update-and-delete-at-the-same-time/ to see examples.
+[Reference](https://www.mssqltips.com/sqlservertip/1704/using-merge-in-sql-server-to-insert-update-and-delete-at-the-same-time/)
 
+```sql
 --***************************************
 My examples:
 	WITH DISTINCT_SRC AS
@@ -86,3 +87,4 @@ WHEN MATCHED
 	INTO #TMP_<Table1>
 	;
 --***************************************
+```
