@@ -1,3 +1,4 @@
+```sql
 --Create Database
 create database MyDatabase;
 
@@ -111,3 +112,4 @@ SELECT * FROM
 	) t
 WHERE price_rank <= 3
 ;
+```
