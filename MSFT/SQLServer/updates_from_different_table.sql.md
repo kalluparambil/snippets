@@ -1,3 +1,4 @@
+```sql
 --*******************************************
 --Updates from different table using MERGE
 --*******************************************
@@ -67,3 +68,4 @@ FROM 	<DEST_TABLE> AS <DEST>
 INNER JOIN <SRC_TABLE> AS <SRC> ON SRC.KEY1 = DEST.KEY1
 WHERE 1=1
 ;
+```
