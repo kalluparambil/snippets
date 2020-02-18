@@ -21,3 +21,13 @@ where c.column_name like '%region%'
       and t.table_type = 'BASE TABLE'
 order by t.table_schema;
 ```
+
+### Find Functions by Name
+```sql
+SELECT routine_name 
+FROM information_schema.routines 
+WHERE routine_type='FUNCTION' 
+AND specific_schema='public' 
+AND routine_name LIKE '%removal%'
+;
+```
