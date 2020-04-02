@@ -12,3 +12,6 @@ http://rubular.com/
 
 Oracle RegExp Reference
 http://psoug.org/reference/regexp.html
+
+Regex Pattern to match only from 32 to 127 ascii
+[^\x20-\x7f\x0d\x1b]
