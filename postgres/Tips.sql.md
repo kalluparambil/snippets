@@ -7,3 +7,8 @@ CREATE TABLE <schema>.<table_name> (
 	CONSTRAINT <table_name>_pkey PRIMARY KEY (id)
 );
 ```
+### Using concate to get full name
+Sometimes the value in middlename would be blank or null.
+```sql
+rtrim(concat(lastname,', ',firstname,' ',coalesce(nullif(middlename,''), ' '))) as fullname
+```
