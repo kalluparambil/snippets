@@ -44,3 +44,11 @@ AND specific_schema='public'
 AND routine_name LIKE '%removal%'
 ;
 ```
+
+### Find Functions and filter by Search Text
+```sql
+SELECT proname, proargnames, prosrc 
+FROM pg_proc
+WHERE prosrc ILIKE '%text to search%'
+;
+```
