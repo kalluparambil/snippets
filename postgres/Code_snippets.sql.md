@@ -1,5 +1,15 @@
 # Postgres SQL Code Snippets
 
+### Get a few random rows from a table
+```
+--Get a few random rows from a table
+select *
+from <replace_with_table_name>
+where 1=1
+order by random()
+limit 100;
+```
+
 ###Use PG Anonymous block to execute statements
 ```sql
 do $$
