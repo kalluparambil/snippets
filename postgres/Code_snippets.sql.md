@@ -37,31 +37,35 @@ end; $$;
 ```
 --Insert Test Data and use Anonymous block to process the data
 
-/* 
 --Alternative is to just import data from Excel using DBeaver
 
-select * from sb.temp_test tt;
+drop table if exists sb.sk_temp_100;
+create table sb.sk_temp_100(id serial primary key , col_value int8 null);
 
-insert into sb.temp_test (id) values (1);
-insert into sb.temp_test (id) values (2);
-insert into sb.temp_test (id) values (3);
-insert into sb.temp_test (id) values (4);
-insert into sb.temp_test (id) values (5);
+/*
+select * from sb.sk_temp_100 tt;
 
-select * from sb.temp_test tt;
+insert into sb.sk_temp_100 (col_value) values (1);
+insert into sb.sk_temp_100 (col_value) values (2);
+insert into sb.sk_temp_100 (col_value) values (3);
+insert into sb.sk_temp_100 (col_value) values (4);
+insert into sb.sk_temp_100 (col_value) values (5);
 */
+
+select * from sb.sk_temp_100 tt;
 
 do $$
 begin
     --Check if table exists
     if exists(select 1 from information_schema.tables 
-    			where table_schema = 'sb' --current_schema() 
-    			and table_name = 'temp_test') 
+                where table_schema = 'sb' --current_schema() 
+                and table_name = 'sk_temp_100') 
     THEN --below write the action to take
-    	delete from sb.temp_test where id in (4,5);
+        delete from sb.sk_temp_100 where id in (2,4);
   end if;
 end; $$ language plpgsql;
 
 --Test
---select * from sb.temp_test tt;
+select * from sb.sk_temp_100 tt;
+
 ```
