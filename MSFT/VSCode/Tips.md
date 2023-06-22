@@ -7,7 +7,9 @@ CTRL + F
 Type your search string
 CTRL + SHIFT + L to select all occurrences found (max. 999)
 ESC (or close search dialog with top-right X)
-CTRL + I to select whole lines
+-- Select whole lines (use the shortcut that works)
+  1. CTRL + I to select whole lines
+  2. SHIFT + ALT + Right Arrow
 CTRL + C
 Open new file
 CTRL + V
