@@ -92,6 +92,7 @@ begin
     -- ##########################################
     if p_days_to_refresh < 0 --refresh all data when negative
     then
+        v_days_to_refresh_start_date = '1970-01-01';
         v_days_to_refresh_start_date_utc = '1970-01-01'::timestamp at time zone 'EST5EDT' at time zone 'UTC';
     else
         v_days_to_refresh_start_date = current_date - make_interval(days => p_days_to_refresh);
@@ -159,6 +160,17 @@ begin
 
     -- ############# END LOG SELECT SUCCESS #############################
 
+    -- ############# BEGIN INDEX CREATION #############################
+    --Indexes to speed up DMLs. Tested and it has big impact.
+    create index idx_tmp_sk_tmp
+    on sk_tmp
+    using btree
+    (
+     product_name
+    );
+    
+    analyze sk_tmp;
+    -- ############# END INDEX CREATION #############################
 
 
     -- ##########################################
