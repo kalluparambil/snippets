@@ -53,6 +53,7 @@ SELECT
 FROM SYS.SYSCOMMENTS AS S 
 WHERE S.[text] LIKE '%text_to_search%' 
 AND OBJECTPROPERTY(S.id, 'IsProcedure') = 1 
+order by 1
 ;
 ```
 
