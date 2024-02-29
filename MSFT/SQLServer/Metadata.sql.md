@@ -10,6 +10,17 @@ SELECT
 ;
 ```
 
+### Find a list of tables in a Schema and Database
+```sql
+select top 100 *
+from information_schema.tables
+where 1=1
+--and table_catalog = 'DATABASE_NAME'
+and table_schema = 'DBO'
+and upper(table_name) like '%SK_TEMP%'
+;
+```
+
 ### Search by Column Name and find the Table and Column
 ```sql
 --Find the User's Table which holds this column
