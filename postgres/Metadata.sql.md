@@ -1,6 +1,23 @@
 # Postgres related Metadata Queries
 
-### Find Tables by name
+### Find Tables by name (option 1)
+```sql
+--Find names of tables with a Pattern
+select
+ schemaname
+,tableowner
+,tablename 
+from pg_catalog.pg_tables 
+where 1=1
+and schemaname = 'public'
+and tableowner like '%%'
+and tablename like '%d%'
+order by 1,2,3
+--limit 100
+;
+```
+
+### Find Tables by name (option 2)
 ```sql
 --Find names of tables with a Pattern
 select table_name
