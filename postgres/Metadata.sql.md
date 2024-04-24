@@ -6,11 +6,9 @@
 select table_name
 from information_schema.tables
 where 1=1
-and t.table_type = 'BASE TABLE' --exclude views
---
---and t.table_schema not in ('information_schema', 'pg_catalog')
+and table_type = 'BASE TABLE' --exclude views
+--and table_schema not in ('information_schema', 'pg_catalog')
 and table_schema = 'public'
---
 and table_name like '%sk_temp%'
 ;
 ```
