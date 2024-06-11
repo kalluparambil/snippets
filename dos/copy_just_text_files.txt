@@ -3,3 +3,4 @@
 ROBOCOPY "C:\Users\sk\" "C:\Users\sk\Search_Source_SQL" *.sql *.txt /E
 
 --/E parameter copies empty directories
+--/S parameter does not copy empty directories
