@@ -1,0 +1,5 @@
+-- Ref: https://stackoverflow.com/questions/472692/how-to-copy-a-directory-structure-but-only-include-certain-files-using-windows
+
+ROBOCOPY "C:\Users\sk\" "C:\Users\sk\Search_Source_SQL" *.sql *.txt /E
+
+--/E parameter copies empty directories
