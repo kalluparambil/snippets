@@ -1,5 +1,7 @@
---Scripts to drop tables in a schema
-```
+# Collection of scripts that server some utility
+
+###Scripts to drop tables in a schema
+```sql
 select -- top 100 *
  table_name
 ,'drop table if exists ' 
