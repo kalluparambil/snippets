@@ -78,3 +78,21 @@ WHERE OBJECTPROPERTY(S.object_id, 'IsProcedure') = 1
 AND definition LIKE '%text_to_search%' 
 ;
 ```
+### Find a list of stored procedures
+```sql
+-- List the Stored Procedures
+SELECT top 100 *
+FROM dbo.sysobjects
+WHERE 1=1
+and (type = 'P')
+and name like '%SP_sk_temp%'
+;
+
+SELECT * 
+FROM magikrpt.INFORMATION_SCHEMA.ROUTINES
+WHERE 1=1
+and ROUTINE_TYPE = 'PROCEDURE'
+and SPECIFIC_NAME like '%SP_sk_temp%'
+;
+
+```
