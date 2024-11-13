@@ -25,7 +25,9 @@ and upper(table_name) like '%SK_TEMP%'
 ```sql
 --Find the User's Table which holds this column
 SELECT top 100
- t.NAME AS Table_Name
+ t.schema_id
+,SCHEMA_NAME(t.schema_id) as Schema_Name
+,t.NAME AS Table_Name
 ,c.NAME AS Column_Name
 FROM sys.columns c
 INNER JOIN sys.objects t ON t.object_id = c.object_id
