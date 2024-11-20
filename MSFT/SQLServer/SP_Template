@@ -1,0 +1,118 @@
+use DATABASE_NAME
+go
+  
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+  
+CREATE PROCEDURE [dbo].[SP_Your_Stored_Procedure]
+ @report_month date = null --do calculations for this month
+AS
+BEGIN
+  
+-- =============================================
+-- Author:      
+-- Create date: 
+-- Description:
+-- Update user: 
+-- Update notes: 
+-- =============================================
+  
+-- SET NOCOUNT ON added to prevent extra result sets from
+-- interfering with SELECT statements.
+SET NOCOUNT ON;
+  
+/* ******************************************** */
+-- Variables for Audit purposes.
+/* ******************************************** */
+  
+DECLARE @Download_DT datetime2 = getdate();
+  
+/* ******************************************** */
+-- Local Variables
+/* ******************************************** */
+--declare @report_month date = null;
+
+-- Default to current month if parameter is null
+if @report_month is null
+    begin
+        --Set to last month's first date
+        set @ReportDate = datefromparts(
+                    year(DATEADD(m, -1, GetDate()))
+                   ,month(DATEADD(m, -1, GetDate()))
+                   ,1);
+    end
+else
+    begin
+        set @ReportDate = @report_month;
+    end
+;
+  
+  
+--###########################################
+-- BEGIN
+--###########################################
+
+BEGIN TRY
+  
+    --Reset this variable when working in 007
+    SET @OkayToCopyIntoProdAfterSuccess = 0;
+  
+	BEGIN TRANSACTION [Tran1]
+	
+	-- ...
+	
+	COMMIT TRANSACTION [Tran1]
+  
+  
+END TRY
+  
+BEGIN CATCH
+  
+    --Failure! Set Flag so that we do not copy into Prod
+    SET @OkayToCopyIntoProdAfterSuccess = 0;
+	
+    DECLARE 
+        @ErrorMessage NVARCHAR(4000),
+        @ErrorSeverity INT,
+        @ErrorState INT;
+    SELECT 
+        @ErrorMessage = ERROR_MESSAGE(),
+        @ErrorSeverity = ERROR_SEVERITY(),
+        @ErrorState = ERROR_STATE();
+    RAISERROR (
+        @ErrorMessage,
+        @ErrorSeverity,
+        @ErrorState    
+        );
+    ROLLBACK TRANSACTION [Tran1]
+	
+END CATCH
+  
+--###########################################
+-- END
+--###########################################
+
+-- BEGIN CLEANUPS
+drop table if exists #temp;
+ 
+-- RETURN OKAY TO PROCEED
+return @OkayToCopyIntoProdAfterSuccess;
+  
+/*
+ 
+-- Tests
+declare @sp_flag tinyint;
+ 
+exec @sp_flag = [dbo].[SP_Your_Stored_Procedure]
+    @report_month = '2024-07-01'
+    ;
+ 
+print @sp_flag;
+ 
+ 
+*/
+  
+END
+GO
