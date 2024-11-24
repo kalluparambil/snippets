@@ -1,3 +1,5 @@
 //How to directly view an article using the Article ID in Joomla site.
 //Example
 http://samskritabharatiusa.org/index.php?option=com_content&view=article&id=234
+or
+http://www.samskritabharatiusa.org/index.php?option=com_content&view=article&id=157
