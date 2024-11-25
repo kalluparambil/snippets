@@ -1,3 +1,4 @@
+```sql
 -- How to add space to name only if name is not null
 -- The code relies on the + operator failing when used with null
 with cte as (
@@ -23,3 +24,4 @@ select *
 	))) as Applicant_FullName
 from cte
 ;
+```
