@@ -52,6 +52,25 @@ where 1=1
 and c.name like '%ColumnName%'
 ;
 ```
+### Search dependencies to find tables inside stored procedures.
+```sql
+select *
+from (
+	select top 10
+	coalesce(Referenced_server_name+'.','')+ --possible server name if cross-server
+		coalesce(referenced_database_name+'.','')+ --possible database name if cross-database
+		coalesce(referenced_schema_name+'.','')+ --likely schema name
+		coalesce(referenced_entity_name,'') + --very likely entity name
+		coalesce('.'+col_name(referenced_ID,referenced_minor_id),'') as source_name
+	,coalesce(object_schema_name(Referencing_ID)+'.','')+ --likely schema name
+		object_name(Referencing_ID)+ --definite entity name
+		coalesce('.'+col_name(referencing_ID,referencing_minor_id),'') as source_used_in
+	from sys.sql_expression_dependencies
+) as t
+where 1=1
+and source_name like '%tbl_name%' --Find the source that is being referenced in procedures etc.
+;
+```
 
 ### Search by Text and find the Procedure and portions of the text
 ```sql
