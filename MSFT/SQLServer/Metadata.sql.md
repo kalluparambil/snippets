@@ -37,7 +37,16 @@ and c.NAME like '%ColumnName%'
 ORDER BY 1,2
 ;
 ```
-
+### Search by Column Name and find the Table and Column
+```sql
+--Alternate way to find the columns
+select * 
+from information_schema.columns
+where 1=1
+and column_name like 'search_string%'
+;
+;
+```
 ### Search by Column Name and find the View and Column
 ```sql
 --Find View Details and Columns Details
