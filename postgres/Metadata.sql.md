@@ -45,7 +45,7 @@ and t.table_type = 'BASE TABLE' --exclude views
 --Filter Schemas
 and t.table_schema not in ('information_schema', 'pg_catalog')
 and t.table_schema = 'sk' -- Schema filter
---and table_schema = 'public'
+--and t.table_schema = 'public'
 --
 and t.table_name like '%case%' --Table filter
 and c.column_name like '%rep%' --Column filter
