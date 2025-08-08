@@ -1,5 +1,13 @@
 # Postgres SQL Code Snippets
 
+### Updating a column from a source table to a destination table joined by a primary key in PostgreSQL
+```
+UPDATE destination_table
+SET destination_column = source_table.source_column
+FROM source_table
+WHERE destination_table.primary_key = source_table.primary_key;
+```
+
 ### Get a few random rows from a table
 ```
 --Get a few random rows from a table
