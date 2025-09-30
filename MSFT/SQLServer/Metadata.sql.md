@@ -108,6 +108,14 @@ WHERE OBJECTPROPERTY(S.object_id, 'IsProcedure') = 1
 AND definition LIKE '%text_to_search%' 
 ;
 ```
+```sql
+SELECT  
+    OBJECT_NAME(S.object_id) AS Proc_Name,
+    S.definition AS Proc_Text
+FROM sys.sql_modules AS S
+WHERE OBJECTPROPERTY(S.object_id, 'IsProcedure') = 1
+  AND PATINDEX('%insert%table1%', LOWER(S.definition)) > 0;
+```
 ### Find a list of stored procedures
 ```sql
 -- List the Stored Procedures
