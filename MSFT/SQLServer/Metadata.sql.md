@@ -116,6 +116,17 @@ FROM sys.sql_modules AS S
 WHERE OBJECTPROPERTY(S.object_id, 'IsProcedure') = 1
   AND PATINDEX('%insert%table1%', LOWER(S.definition)) > 0;
 ```
+```sql
+SELECT
+    SCHEMA_NAME(p.schema_id) AS schema_name,
+    p.name AS procedure_name,
+    m.definition AS procedure_definition
+FROM sys.procedures p
+JOIN sys.sql_modules m ON p.object_id = m.object_id
+WHERE 1=1
+and m.definition LIKE '%INSERT%INTO%TABLE1%'
+;
+```
 ### Find a list of stored procedures
 ```sql
 -- List the Stored Procedures
