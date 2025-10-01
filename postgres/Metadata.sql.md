@@ -84,6 +84,18 @@ AND specific_schema='public'
 AND routine_name ilike '%rem%'
 ;
 ```
+```sql
+select
+  n.nspname AS schema_name,
+  p.proname AS function_name,
+  p.prosrc AS function_body
+from pg_proc p
+join pg_namespace n on p.pronamespace = n.oid
+where 1=1
+and p.prosrc ~* 'insert\s+into\s+(?:public\.)?table1'
+;
+```
+
 
 ### Find Function and Source based on Source Code Pattern
 ```sql
