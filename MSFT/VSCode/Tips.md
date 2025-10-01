@@ -16,3 +16,6 @@ CTRL + V
 ```
 -- ------------------------------
 
+```txt
+Use this string to search inside files "insert\b.*\binto\b.*\btable1\b".
+```
